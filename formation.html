@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation Board - Group 5 FC</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:linear-gradient(to bottom, #0a0a0a, #000);
+  z-index:-2;
+}
+
+/* TITLE */
+.title{
+  text-align:center;
+  margin-top:30px;
+  font-size:32px;
+  color:#00ff88;
+}
+
+.subtitle{
+  text-align:center;
+  color:#aaa;
+  margin-top:8px;
+  padding:0 10px;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
+  padding:0 10px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid #00ff88;
+  padding:8px 14px;
+  border-radius:6px;
+  transition:.3s;
+  font-size:14px;
+}
+
+nav a:hover{
+  background:#00ff88;
+  color:#000;
+}
+
+/* PITCH */
+.pitch{
+  position:relative;
+  width:90%;
+  max-width:900px;
+  height:600px;
+  margin:60px auto;
+  background:linear-gradient(135deg,#0b7a3b,#0a5f30);
+  border:3px solid #fff;
+  border-radius:10px;
+  box-shadow:0 0 30px rgba(0,255,136,0.3);
+}
+
+/* CENTER LINE */
+.pitch::before{
+  content:'';
+  position:absolute;
+  top:50%;left:0;
+  width:100%;height:2px;
+  background:#fff;
+  opacity:0.6;
+}
+
+/* CENTER CIRCLE */
+.center-circle{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:120px;
+  height:120px;
+  border:2px solid #fff;
+  border-radius:50%;
+}
+
+/* PLAYER */
+.player{
+  position:absolute;
+  width:80px;
+  text-align:center;
+  transform:translate(-50%,-50%);
+  animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+  from{opacity:0;transform:translate(-50%,-50%) scale(0.5)}
+  to{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+
+.player img{
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  border:2px solid #fff;
+}
+
+/* NAME */
+.player span{
+  display:block;
+  font-size:12px;
+  margin-top:4px;
+  font-weight:bold;
+}
+
+/* POSITIONS */
+.gk{top:85%;left:50%}
+
+.lb{top:65%;left:20%}
+.cb1{top:70%;left:40%}
+.cb2{top:70%;left:60%}
+.rb{top:65%;left:80%}
+
+.cm1{top:45%;left:35%}
+.cm2{top:45%;left:50%}
+.cm3{top:45%;left:65%}
+
+.lw{top:25%;left:25%}
+.st{top:20%;left:50%}
+.rw{top:25%;left:75%}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET */
+@media(max-width:768px){
+
+  .pitch{
+    height:520px;
+  }
+
+  .player{
+    width:65px;
+  }
+
+  .player img{
+    width:50px;
+    height:50px;
+  }
+
+  .player span{
+    font-size:10px;
+  }
+
+  .center-circle{
+    width:90px;
+    height:90px;
+  }
+}
+
+/* MOBILE SMALL */
+@media(max-width:480px){
+
+  .pitch{
+    height:450px;
+    width:95%;
+  }
+
+  .player{
+    width:55px;
+  }
+
+  .player img{
+    width:42px;
+    height:42px;
+  }
+
+  .player span{
+    font-size:9px;
+  }
+
+  nav a{
+    padding:6px 10px;
+    font-size:12px;
+  }
+
+  .title{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<h1 class="title">Formation Board</h1>
+<p class="subtitle">Group 5 FC Tactical Lineup (4-3-3 Formation)</p>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="squad.html">Squad</a>
+  <a href="matches.html">Matches</a>
+</nav>
+
+<div class="pitch">
+
+  <div class="center-circle"></div>
+
+  <!-- GK -->
+  <div class="player gk">
+    <img src="https://i.pravatar.cc/100?img=12">
+    <span>Fuad</span>
+  </div>
+
+  <!-- DEF -->
+  <div class="player lb">
+    <img src="https://i.pravatar.cc/100?img=32">
+    <span>Kuma</span>
+  </div>
+
+  <div class="player cb1">
+    <img src="https://i.pravatar.cc/100?img=41">
+    <span>Birhanu</span>
+  </div>
+
+  <div class="player cb2">
+    <img src="https://i.pravatar.cc/100?img=45">
+    <span>Elroie (C)</span>
+  </div>
+
+  <div class="player rb">
+    <img src="https://i.pravatar.cc/100?img=60">
+    <span>Milkiyas</span>
+  </div>
+
+  <!-- MID -->
+  <div class="player cm1">
+    <img src="https://i.pravatar.cc/100?img=25">
+    <span>Jalalibsa</span>
+  </div>
+
+  <div class="player cm2">
+    <img src="https://i.pravatar.cc/100?img=15">
+    <span>Bilisuma</span>
+  </div>
+
+  <div class="player cm3">
+    <img src="https://i.pravatar.cc/100?img=8">
+    <span>Godana</span>
+  </div>
+
+  <!-- ATTACK -->
+  <div class="player lw">
+    <img src="https://i.pravatar.cc/100?img=18">
+    <span>Godana</span>
+  </div>
+
+  <div class="player st">
+    <img src="https://i.pravatar.cc/100?img=5">
+    <span>Bilisuma</span>
+  </div>
+
+  <div class="player rw">
+    <img src="https://i.pravatar.cc/100?img=22">
+    <span>Milkiyas</span>
+  </div>
+
+</div>
+
+</body>
+</html>

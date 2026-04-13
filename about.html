@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Group 5 FC</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  color:#fff;
+  background:#000;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80')
+  center/cover no-repeat;
+  animation:zoom 18s infinite alternate;
+  z-index:-2;
+}
+
+@keyframes zoom{
+  0%{transform:scale(1)}
+  100%{transform:scale(1.1)}
+}
+
+.overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.7);
+  z-index:-1;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  color:#00ff88;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+/* NAV (DESKTOP) */
+#sidebar{
+  display:flex;
+  gap:20px;
+}
+
+#sidebar a{
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+}
+
+#sidebar a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#00ff88;
+  transition:.3s;
+}
+
+#sidebar a:hover::after{
+  width:100%;
+}
+
+/* MENU BUTTON */
+.menu-btn{
+  display:none;
+  font-size:28px;
+  color:#00ff88;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px 60px;
+  animation:fade 1s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.hero h1{
+  font-size:48px;
+  color:#00ff88;
+}
+
+.hero p{
+  max-width:700px;
+  margin:20px auto;
+  color:#ddd;
+  line-height:1.6;
+}
+
+/* CONTENT */
+.section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:12px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 20px rgba(0,255,136,0.2);
+}
+
+.card h3{
+  color:#00ff88;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:rgba(0,0,0,0.7);
+  color:#aaa;
+  margin-top:40px;
+}
+
+/* MOBILE SIDEBAR */
+@media(max-width:768px){
+
+  header{
+    padding:15px 20px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  #sidebar{
+    position:fixed;
+    top:0;
+    right:-260px;
+    width:250px;
+    height:100vh;
+    flex-direction:column;
+    background:rgba(0,0,0,0.95);
+    backdrop-filter:blur(10px);
+    padding:80px 20px;
+    gap:25px;
+    transition:0.3s;
+    z-index:2000;
+  }
+
+  #sidebar.active{
+    right:0;
+  }
+
+  #sidebar a{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<header>
+  <div class="logo">⚽ GROUP 5 FC</div>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="squad.html">Squad</a>
+    <a href="matches.html">Matches</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="developers.html">Developers</a>
+    
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>About Group 5 FC</h1>
+  <p>
+    Group 5 FC is a passionate football team built on discipline, teamwork, and ambition.
+    We train hard, play harder, and aim to become champions in every competition we enter.
+  </p>
+</section>
+
+<section class="section">
+  <div class="cards">
+
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>To build a strong, united team that plays modern attacking football with discipline and respect.</p>
+    </div>
+
+    <div class="card">
+      <h3>Our Vision</h3>
+      <p>To become one of the most respected local football clubs through performance and consistency.</p>
+    </div>
+
+    <div class="card">
+      <h3>Team Spirit</h3>
+      <p>We believe football is won through teamwork, communication, and trust between players.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Group 5 FC | About Page</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+// close menu when clicking a link
+document.querySelectorAll("#sidebar a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("sidebar").classList.remove("active");
+  });
+});
+</script>
+
+</body>
+</html>
